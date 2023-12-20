@@ -1,0 +1,54 @@
+[project]
+name = "sym-rl-experiments"
+authors = [
+  { name = "Anand Balakrishnan" },
+  { name = "Stefan Jakšić" },
+  { name = "Edgar A. Aguilar" },
+  { name = "Dejan Ničković" },
+  { name = "Jyotirmoy V. Deshmukh" },
+]
+
+
+version = "0.1.0"
+description = "A collection of packages to run the experiments for reinforcement learning with symbolic automata objectives."
+readme = "README.md"
+
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Intended Audience :: Science/Research",
+]
+
+requires-python = "~=3.9"
+
+dependencies = [
+  "numpy ~= 1.21",
+  "scipy ~= 1.7",
+  "z3-solver ~= 4.8",
+  "networkx ~= 2.6",
+  "symbolic-automata-monitors @ https://github.com/anand-bala/symbolic-automata-monitors/tarball/11cf85e97fad5410ce1610b815543135e20e7d20",
+  "gym[box2d,mujoco] ~= 0.25",
+  "stable-baselines3 @ https://github.com/carlosluis/stable-baselines3/tarball/c4bf066332719562abc7bb3d63d2bb124459f692",                   # Use SB3 with Gym == 0.25"
+  "tensorboard",
+]
+
+[project.optional-dependencies]
+plots = [
+  "SciencePlots",
+  "matplotlib ~= 3.4",
+  "pandas ~= 1.3.5",
+  "seaborn ~= 0.11",
+]
+
+[tool.setuptools]
+packages = ["sym_rl"]
+
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
+group_by_package = true
+
+[tool.black]
+line-length = 88
